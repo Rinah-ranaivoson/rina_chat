@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-13">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Ranai/Desktop/Soft project/java/Chat_rina_V2/jar/bcprov-ext-jdk15to18-177.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Ranai/Desktop/Soft project/java/Chat_rina_V2/jar/jackson-annotations-2.16.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Ranai/Desktop/Soft project/java/Chat_rina_V2/jar/jackson-core-2.16.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Ranai/Desktop/Soft project/java/Chat_rina_V2/jar/jackson-databind-2.16.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Ranai/Desktop/Soft project/java/Examen_JAVA/jar/jackson-databind-2.16.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
