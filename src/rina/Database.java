@@ -19,12 +19,13 @@ public class Database {
         this.objectMapper = new ObjectMapper();
     }
 
-    public void store(String envoyeur, String recepteur, byte[] message) {
+    public void store(String envoyeur, String recepteur, byte[] message, byte[] date) {
         String messageBase64 = Base64.getEncoder().encodeToString(message);
+        String dateBase64 = Base64.getEncoder().encodeToString(date);
 
         // Créez un objet représentant les données du message
-        String data = String.format("{\"e\":\"%s\",\"r\":\"%s\",\"m\":\"%s\"}%n",
-                envoyeur, recepteur, messageBase64);
+        String data = String.format("{\"e\":\"%s\",\"r\":\"%s\",\"m\":\"%s\",\"d\":\"%s\"}%n",
+                envoyeur, recepteur, messageBase64, dateBase64);
 
         try (FileWriter writer = new FileWriter(cheminFichier, true)) {
             writer.write(data);
@@ -33,6 +34,7 @@ public class Database {
             e.printStackTrace();
         }
     }
+
 
     public ArrayList<String> read(String id1, String id2) {
         ArrayList<String> messagesCryptes = new ArrayList<>();

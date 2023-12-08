@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.KeyFactory;
 import java.security.KeyPair;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
@@ -642,9 +641,10 @@ public class UserDatabase {
 	                            String idOne = node.get("e").asText();
 	                            String idTwo = node.get("r").asText();
 	                            String messageCrypteRSA = node.get("m").asText();
+	                            String dateCrypteRSA = node.get("d").asText();
 	                            
-	                            System.out.println("Envoyeur " + getNameOf(idOne));
-	                            System.out.println("Recepteur " + getNameOf(idTwo));
+	                            System.out.println("Envoyeur: " + getNameOf(idOne));
+	                            System.out.println("Recepteur: " + getNameOf(idTwo));
 	                            
 	                            for(String[]keyInfo : infoKey) {
 	                            	if( (idOne.equals(keyInfo[0]) && idTwo.equals(keyInfo[1]) ) || (idOne.equals(keyInfo[1])) && idTwo.equals(keyInfo[0]) ) {
@@ -658,6 +658,11 @@ public class UserDatabase {
 		                                    cipher.init(Cipher.DECRYPT_MODE, privateKey);
 
 		                                    byte[] decryptedBytes = cipher.doFinal(ciphertext);
+		                                    byte[] cipherdate = Base64.getDecoder().decode(dateCrypteRSA);
+		                                    String time = new String(cipherdate, StandardCharsets.UTF_8);
+		                                    
+		                                    System.out.println("Date: " + time);
+		                                    
 		                                    String message = new String(decryptedBytes, "UTF-8");
 		                                    String RESET = "\u001B[0m";
 		                                    String BOLD = "\u001B[1m";

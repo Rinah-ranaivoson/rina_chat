@@ -1,15 +1,12 @@
 package rina;
 
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
 import java.security.PrivateKey;
 import java.security.PublicKey;
-import java.security.Security;
-import java.security.Signature;
+import java.time.LocalDateTime;
+
 import javax.crypto.Cipher;
 import java.util.ArrayList;
 import java.util.Base64;
-import java.util.List;
 
 
 public class Person {
@@ -22,7 +19,10 @@ public class Person {
     
     public void send(String message, String receiverId, PublicKey publicKey) throws Exception {
     	byte[] ciphertext = encrypt(message, publicKey);
-        db.store(myId, receiverId, ciphertext);
+    	LocalDateTime currentDate = LocalDateTime.now();
+        String dateStr = currentDate.toString();
+        byte[] cipherdate = dateStr.getBytes();
+        db.store(myId, receiverId, ciphertext ,cipherdate);
     }
     
     public ArrayList<String> read(String receiverId , PrivateKey privateKey) {

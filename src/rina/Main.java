@@ -38,7 +38,6 @@ public class Main {
 	
 		singin();
 		login();
-		//searchNameUser();
 		if(adminStatut) {
 			adminDashboard();
 		}else {
@@ -49,7 +48,7 @@ public class Main {
 	private static void adminDashboard() throws InvalidKeySpecException, NoSuchAlgorithmException {
 		System.out.println("Bienvenue Admin !");
 		while(true) {
-			System.out.println("Voici les commandes possibles [CRUD] [user information] [user message]");
+			System.out.println("Voici les commandes possibles [CRUD] [user information] [user message] [exit]");
 			String command = scan.nextLine();
 			
 			if(command.equals("CRUD")) {
@@ -66,7 +65,7 @@ public class Main {
 					String randomId = generateRandomId();
 					database.addUser(randomId, nom, password, statut);		
 					
-					System.out.println("Compte crée avec succes, bienvenue ");  
+					System.out.println("Compte crée avec succes ");  
 				}
 				
 				if(operation.equals("afficher")) {
@@ -140,7 +139,7 @@ public class Main {
 					  for(int i=0 ; i<contactId.size() ; i++) {
 						  Contact newContact = new Contact(contactId.get(i),contactName.get(i),contactPublicKey.get(i),contactPrivateKey.get(i));
 		                  contact.add(newContact);
-		                  newContact.leak();
+		                  //newContact.leak();
 					  }
 					  break;
 				   }else {
@@ -258,7 +257,7 @@ public class Main {
 		        }
 
 		        if (!contactFound) {
-		            System.out.println(name + " n'est pas l'un de vos contacts");
+		            System.out.println(name + "n'est pas l'un de vos contacts");
 		        }
 		    }
 		}
